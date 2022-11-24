@@ -20,11 +20,15 @@
     <!-- 아래의 코드를 추가 합니다.-->
     <table border="1">
         <tr>
-            <th>TEXT</th>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
         </tr>
-        <th:block th:each="rl : ${resultList}">
+        <th:block th:each="student : ${studentsList}">
             <tr>
-                <td th:text="${ rl }"></td>
+                <td th:text="${ student.id }"></td>
+                <td th:text="${ student.name }"></td>
+                <td th:text="${ student.email }"></td>
             </tr>
         </th:block>
     </table>

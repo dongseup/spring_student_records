@@ -1,5 +1,6 @@
 package com.noone.spring_student_records.controller;
 
+import com.noone.spring_student_records.model.StudentsModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,16 +16,24 @@ public class HomeController {
     @RequestMapping(value = "/home", method=RequestMethod.GET)
     public ModelAndView goHome(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
-        List<String> resultList = new ArrayList<String>();
+        List<StudentsModel> studentsList = new ArrayList<StudentsModel>();
 
-        resultList.add("AAA");
-        resultList.add("BBB");
-        resultList.add("CCC");
-        resultList.add("DDD");
-        resultList.add("EEE");
-        resultList.add("FFF");
+        // Model
+        StudentsModel studentsModel;
 
-        mav.addObject("resultList",resultList);
+        // 첫번째 데이터
+        studentsModel = StudentsModel.builder().id(1).name("AAA").email("AAA@example.com").build();
+        studentsList.add(studentsModel);
+
+        // 두번째 데이터
+        studentsModel = StudentsModel.builder().id(2).name("BBB").email("BBB@example.com").build();
+        studentsList.add(studentsModel);
+
+        // 세번째 데이터
+        studentsModel = StudentsModel.builder().id(1).name("CCC").email("CCC@example.com").build();
+        studentsList.add(studentsModel);
+
+        mav.addObject("studentsList",studentsList);
         mav.setViewName("content/home");
 
         return mav;
