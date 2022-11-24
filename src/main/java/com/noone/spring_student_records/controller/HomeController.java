@@ -3,16 +3,30 @@ package com.noone.spring_student_records.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Controller
 public class HomeController {
-    @RequestMapping(value = "/home", method= RequestMethod.GET)
-    @ResponseBody
-    public String goHome(HttpServletRequest request) {
-        System.out.println("enter");
-        return "Hello Spring Boot";
+    @RequestMapping(value = "/home", method=RequestMethod.GET)
+    public ModelAndView goHome(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        List<String> resultList = new ArrayList<String>();
+
+        resultList.add("AAA");
+        resultList.add("BBB");
+        resultList.add("CCC");
+        resultList.add("DDD");
+        resultList.add("EEE");
+        resultList.add("FFF");
+
+        mav.addObject("resultList",resultList);
+        mav.setViewName("content/home");
+
+        return mav;
     }
 }
