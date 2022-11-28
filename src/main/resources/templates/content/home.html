@@ -21,14 +21,18 @@
     <table border="1">
         <tr>
             <th>id</th>
+            <th>num</th>
             <th>name</th>
-            <th>email</th>
+            <th>tel</th>
+            <th>ban_id</th>
         </tr>
         <th:block th:each="student : ${studentsList}">
             <tr>
-                <td th:text="${ student.id }"></td>
-                <td th:text="${ student.name }"></td>
-                <td th:text="${ student.email }"></td>
+                <td th:text="${ student.student_id }"></td>
+                <td th:text="${ student.student_num }"></td>
+                <td th:text="${ student.student_name }"></td>
+                <td th:text="${ student.tel }"></td>
+                <td th:text="${ student.ban_id }"></td>
             </tr>
         </th:block>
     </table>
